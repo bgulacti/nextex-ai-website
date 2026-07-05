@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f6f6f1;
+  --paper-2: #edede6;
+  --ink: #0c0d0b;
+  --muted: #63665c;
+  --line: #e0e0d6;
+  --graphite: #121410;
+  --graphite-2: #1a1d18;
+  --acid: #c8ff00;
+  --acid-dim: #9fcc00;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-graphite: var(--graphite);
+  --color-graphite-2: var(--graphite-2);
+  --color-acid: var(--acid);
+  --color-acid-dim: var(--acid-dim);
+  --font-sans: "Helvetica Neue", Helvetica, var(--font-inter), Arial, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, var(--font-inter), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.flow-line {
+  stroke-dasharray: 4 8;
+  animation: dash-flow 1.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-line {
+    animation: none;
+  }
+}
