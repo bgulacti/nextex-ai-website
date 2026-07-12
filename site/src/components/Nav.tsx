@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 const LINKS = [
   ["Platform", "#platform"],
-  ["Production", "#production"],
+  ["Partners", "#partners"],
   ["Sustainability", "#sustainability"],
   ["Products", "#products"],
-  ["Roadmap", "#roadmap"],
+  ["Company", "#team"],
 ];
 
 export default function Nav() {

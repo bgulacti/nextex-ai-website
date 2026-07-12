@@ -15,10 +15,10 @@ const DETAIL_KPIS = [
 ] as const;
 
 const FRAMEWORKS = [
-  "CSRD-oriented reporting",
-  "Digital Product Passport readiness",
+  "Customer & CSRD-aligned reporting",
+  "Digital Product Passport readiness (EU, expected from ~2028)",
   "EU Green Deal metrics",
-  "TÜV-oriented documentation",
+  "Documentation structured for third-party assurance",
   "ESG dashboards",
   "Exportable PDF report packs",
 ] as const;
@@ -38,13 +38,19 @@ export default function Sustainability() {
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
             Five numbers tell the story. Everything beneath them stays
-            traceable to machine events. Figures shown are illustrative pilot
-            telemetry.
+            traceable to machine events — each figure designed to drill down
+            to the events that produced it.
           </p>
         </Reveal>
 
         {/* Headline KPIs — big number, short label, one sparkline */}
-        <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5 lg:gap-8">
+        <Reveal delay={0.05}>
+          <p className="mt-16 font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
+            Illustrative design targets — validated against each mill&apos;s own
+            baselines during pilots
+          </p>
+        </Reveal>
+        <div className="mt-4 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5 lg:gap-8">
           {KPIS.map((kpi, i) => (
             <Reveal key={kpi.k} delay={i * 0.05}>
               <div className="border border-line bg-paper px-6 py-8">
@@ -86,13 +92,19 @@ export default function Sustainability() {
         {/* One minimal report page */}
         <div className="mt-20 grid items-center gap-12 md:grid-cols-2">
           <Reveal>
-            <div className="border border-line bg-white px-8 py-10 shadow-[0_1px_2px_rgba(12,13,11,0.06)] md:px-10 md:py-12">
+            <div className="relative border border-line bg-paper px-8 py-10 shadow-[0_1px_2px_rgba(12,13,11,0.06)] md:px-10 md:py-12">
+              <span
+                aria-hidden
+                className="absolute right-4 top-4 border border-line px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.22em] text-muted"
+              >
+                Sample
+              </span>
               <div className="flex items-baseline justify-between gap-4">
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
                   Sustainability report
                 </p>
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-                  Q2 · Factory 1
+                  Illustrative
                 </p>
               </div>
               <h3 className="mt-6 text-xl font-semibold tracking-tight">
@@ -123,7 +135,7 @@ export default function Sustainability() {
                 ))}
               </svg>
               <p className="mt-8 border-t border-line pt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-                Every figure traces to machine events · Export PDF
+                Designed so every figure traces to machine events · Export PDF
               </p>
             </div>
           </Reveal>
@@ -135,7 +147,8 @@ export default function Sustainability() {
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
               One page, five numbers, a trend — and behind every line, the
               machine events that produced it. Drill from report figure to
-              timestamp when the question comes.
+              timestamp when the question comes. NexTex AI prepares the
+              evidence; certification remains with accredited bodies.
             </p>
             <ul className="mt-8 space-y-3">
               {FRAMEWORKS.map((f) => (

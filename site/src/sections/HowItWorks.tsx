@@ -19,7 +19,7 @@ const STEPS = [
   {
     n: "04",
     title: "Prove",
-    body: "Every event lands in the sustainability intelligence database and becomes a traceable, audit-ready KPI.",
+    body: "Every event lands in the sustainability intelligence database and becomes a traceable KPI — audit-ready by design.",
   },
 ] as const;
 

@@ -10,18 +10,21 @@ const FABRIC = [
   "CO₂ & fabric-waste KPIs",
 ] as const;
 
-const FABRIC_PRO = [
+const FABRIC_PRO_PILOT = [
   "Everything in Fabric",
   "Industrial sensors + PLC / SCADA integration",
-  "Predictive & process-optimization AI",
-  "Digital twin & multi-sensor intelligence",
-  "Human-in-the-loop, explainable AI",
-  "Enterprise & multi-factory dashboards",
+  "Multi-sensor data collection",
+  "Enterprise dashboards",
+] as const;
+
+const FABRIC_PRO_PLANNED = [
+  "Process-optimization AI — operator-approved",
+  "Predictive quality models",
+  "Digital twin",
   "Machine-level sustainability intelligence",
-  "Advanced CSRD-oriented reporting",
+  "Customer & CSRD-aligned report packs",
   "Digital Product Passport readiness",
-  "Audit-ready compliance reports",
-  "API integrations",
+  "Multi-factory management & API",
 ] as const;
 
 export default function Products() {
@@ -52,7 +55,10 @@ export default function Products() {
                 digital transformation — see your quality and resource footprint
                 in weeks, not years.
               </p>
-              <ul className="mt-7 space-y-2.5 border-t border-line pt-6">
+              <p className="mt-7 border-t border-line pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                Pilot scope
+              </p>
+              <ul className="mt-3 space-y-2.5">
                 {FABRIC.map((f) => (
                   <li key={f} className="flex items-baseline gap-2.5 text-sm text-ink/85">
                     <span aria-hidden className="size-1.5 shrink-0 translate-y-[-1px] bg-acid" />
@@ -61,7 +67,7 @@ export default function Products() {
                 ))}
               </ul>
               <p className="mt-auto pt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-                Start monitoring · retrofit install
+                Retrofit install · pilot pricing on request
               </p>
             </article>
           </Reveal>
@@ -79,19 +85,33 @@ export default function Products() {
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-paper/65">
                 The complete industrial intelligence platform — process
-                optimization, digital twin and audit-ready sustainability
-                intelligence across factories.
+                optimization, digital twin and sustainability intelligence
+                across factories.
               </p>
-              <ul className="mt-7 space-y-2.5 border-t border-paper/15 pt-6">
-                {FABRIC_PRO.map((f) => (
+              <p className="mt-7 border-t border-paper/15 pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/50">
+                Pilot scope
+              </p>
+              <ul className="mt-3 space-y-2.5">
+                {FABRIC_PRO_PILOT.map((f) => (
                   <li key={f} className="flex items-baseline gap-2.5 text-sm text-paper/90">
                     <span aria-hidden className="size-1.5 shrink-0 translate-y-[-1px] bg-acid" />
                     {f}
                   </li>
                 ))}
               </ul>
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/50">
+                Planned
+              </p>
+              <ul className="mt-3 space-y-2.5">
+                {FABRIC_PRO_PLANNED.map((f) => (
+                  <li key={f} className="flex items-baseline gap-2.5 text-sm text-paper/70">
+                    <span aria-hidden className="size-1.5 shrink-0 translate-y-[-1px] border border-acid/60" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
               <p className="mt-auto pt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-acid">
-                Scale intelligence · factory-wide
+                Sequenced with pilot partners
               </p>
             </article>
           </Reveal>

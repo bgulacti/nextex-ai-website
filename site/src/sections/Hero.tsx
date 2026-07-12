@@ -1,13 +1,14 @@
 "use client";
 
 import ScrollScrub, { fade } from "@/components/ScrollScrub";
+import { ConceptTag } from "@/components/Labels";
 import { FRAMES } from "@/lib/assets";
 
 const KPIS = [
-  ["Machine", "M-04 · circular knit"],
-  ["First-quality rate", "98.5%"],
-  ["Energy intensity", "0.42 kWh/kg"],
-  ["Scan coverage", "100% of web"],
+  ["Pilot scope", "Circular knit lines"],
+  ["First-quality target", "98.5%"],
+  ["Energy view", "kWh/kg per machine"],
+  ["Scan coverage target", "100% of web"],
 ] as const;
 
 export default function Hero() {
@@ -85,11 +86,23 @@ export default function Hero() {
               </div>
             </div>
 
+            {/* Concept-visualization tag while the scrub narrative runs */}
+            <div
+              className="absolute right-5 top-[4.5rem]"
+              style={{ opacity: fade(p, 0.26, 1.01) * 0.9 }}
+              aria-hidden
+            >
+              <ConceptTag className="text-ink/50" />
+            </div>
+
             {/* Machine-level KPIs settle in */}
             <div
-              className="absolute inset-x-0 bottom-0 flex justify-center px-5 pb-[9vh]"
+              className="absolute inset-x-0 bottom-0 flex flex-col items-center px-5 pb-[9vh]"
               style={{ opacity: fade(p, 0.82, 1.01) }}
             >
+              <p className="mb-2 font-mono text-[9px] uppercase tracking-[0.22em] text-muted">
+                Design targets — validated per mill during pilots
+              </p>
               <dl className="grid w-full max-w-4xl grid-cols-2 gap-px border border-line bg-line md:grid-cols-4">
                 {KPIS.map(([k, v]) => (
                   <div key={k} className="bg-paper/95 px-4 py-3 backdrop-blur">

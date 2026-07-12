@@ -72,14 +72,25 @@ export default function DataIntelligence() {
           >
             <div className="max-w-lg border-l-2 border-acid bg-ink/85 px-5 py-4 backdrop-blur-sm">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-acid">
-                The sustainability intelligence database
+                The sustainability intelligence database · in development with pilot partners
               </p>
               <p className="mt-2 text-base leading-relaxed text-paper">
-                Every machine event is connected to its quality, process and
-                sustainability outcome — one queryable record of how fabric
-                actually gets made.
+                Designed so every machine event connects to its quality,
+                process and sustainability outcome — one queryable record of
+                how fabric actually gets made.
               </p>
             </div>
+          </div>
+
+          {/* Honesty tag for the rendered twin */}
+          <div
+            aria-hidden
+            className="absolute right-5 top-[4.5rem]"
+            style={{ opacity: fade(p, 0.1, 1.01) * 0.9 }}
+          >
+            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-paper/60">
+              Concept visualization
+            </span>
           </div>
         </>
       )}

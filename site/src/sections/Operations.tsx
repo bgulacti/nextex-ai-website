@@ -4,7 +4,7 @@ const LOOP = [
   ["Detect", "Models flag defects and process drift in real time."],
   ["Validate", "Operators confirm or correct every finding — human-in-the-loop."],
   ["Retrain", "Validated findings become training signal for the next model."],
-  ["Deploy", "Improved models roll to the edge with full version history."],
+  ["Deploy", "Improved models will roll to the edge with full version history."],
   ["Monitor", "Detection quality and false-alarm rates are tracked like any KPI."],
 ] as const;
 
@@ -21,9 +21,9 @@ const ROADMAP = [
     phase: "Now",
     title: "Quality foundation",
     items: [
-      "Defect detection in pilot operation",
-      "Machine monitoring & operator alerts",
-      "Core energy, water, CO₂ and waste KPIs",
+      "Defect detection in validation",
+      "First pilot mills onboarding (LoIs signed)",
+      "Core KPI baselines defined with partners",
     ],
   },
   {
@@ -97,6 +97,16 @@ export default function Operations() {
               success criteria — measured against your fabric, your machines
               and your baseline, before any rollout decision.
             </p>
+            <div className="mt-8 max-w-md border-l-2 border-acid bg-paper px-5 py-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                Current status
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-ink">
+                Letters of Intent signed with three industrial partners.
+                First pilot mills onboarding for 2026–27. No commercial
+                deployments yet — and we say so.
+              </p>
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <ul className="space-y-4 border-l border-line pl-6">

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://nextex-ai.com"),
   title: {
     default: "NexTex AI — Machine Intelligence for Sustainable Textile Manufacturing",
     template: "%s — NexTex AI",

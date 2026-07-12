@@ -70,7 +70,7 @@ export default function ProcessIntelligence() {
           </div>
           <div className="relative z-10 -mt-16 ml-6 max-w-sm border border-line bg-paper p-5 shadow-sm md:ml-12">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-              Recommendation · #241
+              Recommendation · illustrative example
             </p>
             <p className="mt-2 text-sm leading-relaxed text-ink">
               Stenter M-07 — reduce drying zone 3 by 4 °C. Estimated −6% gas per

@@ -1,17 +1,18 @@
 import Reveal from "@/components/Reveal";
+import PilotForm from "@/components/PilotForm";
 
-const DISCIPLINES = [
+const FOUNDERS = [
   {
-    t: "Machine vision & edge AI",
-    b: "Engineers who ship models that hold up at line speed, in mill light, on real fabric.",
+    initials: "BG",
+    name: "Berk Gülaçtı",
+    role: "Founder & CEO",
+    email: "berk@nextex-ai.com",
   },
   {
-    t: "Textile process engineering",
-    b: "People who have run knitting, dyeing and finishing lines — and know where quality is actually lost.",
-  },
-  {
-    t: "Industrial data & compliance",
-    b: "Builders of measurement chains and reporting tooling designed to survive an audit.",
+    initials: "BÜ",
+    name: "Burak Ünal",
+    role: "Co-Founder & AI Vision Engineer",
+    email: "burak@nextex-ai.com",
   },
 ] as const;
 
@@ -36,38 +37,51 @@ const CONTACTS = [
 export default function TeamContact() {
   return (
     <>
-      {/* Team */}
-      <section id="team" className="scroll-mt-14 border-b border-line bg-paper" aria-label="Team">
+      {/* Founders */}
+      <section id="team" className="scroll-mt-14 border-b border-line bg-paper" aria-label="Founders">
         <div className="mx-auto max-w-6xl px-5 py-24 md:py-32">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted">
-              Team
+              Founders
             </p>
             <h2 className="mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight md:text-5xl">
-              Built where textile engineering meets machine intelligence.
+              Founder-led, where textile engineering meets machine intelligence.
             </h2>
             <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
-              NexTex AI is a European DeepTech team. We publish claims we can
-              defend — the same standard we apply to every report the platform
-              produces.
+              We publish claims we can defend — the same standard we apply to
+              every report the platform produces.
             </p>
           </Reveal>
-          <div className="mt-14 grid gap-px border border-line bg-line md:grid-cols-3">
-            {DISCIPLINES.map((d, i) => (
-              <Reveal key={d.t} delay={i * 0.07} className="bg-paper">
-                <div className="h-full px-6 py-8">
-                  <h3 className="text-base font-semibold tracking-tight">{d.t}</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted">{d.b}</p>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {FOUNDERS.map((f, i) => (
+              <Reveal key={f.name} delay={i * 0.08}>
+                <div className="flex items-center gap-6 border border-line bg-paper px-7 py-8">
+                  <span
+                    aria-hidden
+                    className="flex size-16 shrink-0 items-center justify-center border border-line bg-paper-2 text-lg font-bold tracking-tight text-ink"
+                  >
+                    {f.initials}
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-semibold tracking-tight">{f.name}</h3>
+                    <p className="mt-1 text-sm text-muted">{f.role}</p>
+                    <a
+                      href={`mailto:${f.email}`}
+                      className="mt-2 inline-block text-sm text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-acid"
+                    >
+                      {f.email}
+                    </a>
+                  </div>
                 </div>
               </Reveal>
             ))}
           </div>
           <Reveal delay={0.15}>
-            <p className="mt-8 text-sm text-muted">
-              We hire engineers who have stood next to the machines they model.{" "}
+            <p className="mt-8 text-sm text-ink">
+              We&rsquo;re hiring a Founding Software Engineer.{" "}
               <a
-                href="mailto:careers@nextex-ai.com"
-                className="text-ink underline decoration-acid decoration-2 underline-offset-4"
+                href="mailto:careers@nextex-ai.com?subject=Founding%20Software%20Engineer"
+                className="underline decoration-acid decoration-2 underline-offset-4"
               >
                 careers@nextex-ai.com
               </a>
@@ -93,8 +107,14 @@ export default function TeamContact() {
             </p>
           </Reveal>
 
+          <Reveal delay={0.08}>
+            <div className="mt-14 max-w-3xl">
+              <PilotForm />
+            </div>
+          </Reveal>
+
           <Reveal delay={0.1}>
-            <dl className="mt-16 border-t border-line">
+            <dl className="mt-20 border-t border-line">
               {CONTACTS.map((c) => (
                 <div
                   key={c.email}

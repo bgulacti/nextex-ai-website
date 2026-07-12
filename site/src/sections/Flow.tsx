@@ -7,7 +7,7 @@ const STAGES = [
   {
     img: "/img/hero_v1.jpg",
     name: "Knitting",
-    line: "Loop formation is watched at needle resolution — defects are caught as they are knitted, not at rolling.",
+    line: "Designed to watch loop formation at needle resolution — catching defects as they are knitted, not at rolling.",
   },
   {
     img: "/img/stage_dyeing.jpg",
@@ -32,7 +32,7 @@ const STAGES = [
   {
     img: "/img/stage_quality.jpg",
     name: "Quality Control",
-    line: "Machine vision grades every meter before it leaves the line.",
+    line: "Designed to grade every meter with machine vision before it leaves the line.",
   },
 ] as const;
 

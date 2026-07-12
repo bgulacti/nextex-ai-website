@@ -87,12 +87,15 @@ export default function ScrollScrub({
     const load = () => {
       if (loading) return;
       loading = true;
-      for (let i = 0; i < frameCount; i++) {
+      // On small screens, load every 6th frame (~1/6 payload); nearest()
+      // bridges the gaps so the scrub stays smooth without the full download.
+      const step = window.matchMedia("(max-width: 767px)").matches ? 6 : 1;
+      for (let i = 0; i < frameCount; i += step) {
         const im = new Image();
         im.decoding = "async";
         im.onload = () => {
           // Repaint when the frame we are parked on (or frame 0) arrives.
-          if (!disposed && (i === Math.max(lastFrame, 0) || lastFrame < 0)) {
+          if (!disposed && (Math.abs(i - Math.max(lastFrame, 0)) < step || lastFrame < 0)) {
             draw(Math.max(lastFrame, 0));
           }
         };

@@ -75,8 +75,19 @@ export default function DefectIntelligence() {
               AI defect intelligence
             </p>
             <h2 className="mt-3 max-w-xl text-balance text-3xl font-semibold tracking-tight text-paper md:text-5xl">
-              Every meter is graded the moment it exists.
+              Built to grade every meter the moment it exists.
             </h2>
+          </div>
+
+          {/* Honesty tag for the staged scene */}
+          <div
+            aria-hidden
+            className="absolute right-5 top-[4.5rem]"
+            style={{ opacity: fade(p, 0.15, 1.01) * 0.9 }}
+          >
+            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-paper/60">
+              Concept visualization — pilot data will replace this
+            </span>
           </div>
 
           {/* Laser scan line riding scroll progress */}

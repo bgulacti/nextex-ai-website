@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Hero from "@/sections/Hero";
 import Problem from "@/sections/Problem";
+import Partners from "@/sections/Partners";
 import Flow from "@/sections/Flow";
 import HowItWorks from "@/sections/HowItWorks";
 import DefectIntelligence from "@/sections/DefectIntelligence";
@@ -19,6 +20,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <Problem />
+      <Partners />
       <Flow />
       <HowItWorks />
       <DefectIntelligence />

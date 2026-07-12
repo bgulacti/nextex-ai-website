@@ -90,9 +90,10 @@ export default function Footer() {
             © 2026 NexTex AI. All rights reserved.
           </p>
           <p className="max-w-md text-xs leading-relaxed text-paper/40">
-            NexTex AI prepares audit-ready data and documentation; certification
-            and assurance remain with accredited bodies. All process
-            recommendations are operator-approved.
+            NexTex AI prepares data and documentation for third-party
+            assurance; certification remains with accredited bodies. All
+            process recommendations are operator-approved. Machine and
+            facility visuals on this site are concept renders.
           </p>
         </div>
       </div>
