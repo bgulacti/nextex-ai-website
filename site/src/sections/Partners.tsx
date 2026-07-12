@@ -1,23 +1,20 @@
 import Reveal from "@/components/Reveal";
 
-/**
- * Wordmarks render as monochrome type until official logo files are placed in
- * /public/partners (terrot.svg, nuryildiz.svg, ribana.svg) — swap `mark` for
- * an <Image> then. Descriptors are factual, from signed LoI materials.
- */
+/** Official partner logos (from partner materials / official sites),
+ *  rendered grayscale to keep the section monochrome. */
 const PARTNERS = [
   {
-    mark: "Terrot",
+    logo: "/partners/terrot.png",
     name: "Terrot GmbH",
     line: "Circular knitting machine manufacturer — Germany",
   },
   {
-    mark: "Nuryıldız",
+    logo: "/partners/nuryildiz.png",
     name: "Nuryıldız Tekstil",
     line: "80+ machines, circular knitting & finishing — Çorlu / İstanbul",
   },
   {
-    mark: "RibanaTeks",
+    logo: "/partners/ribana.svg",
     name: "Ribana Tekstil",
     line: "150+ circular knitting machines — İstanbul, est. 1990",
   },
@@ -43,10 +40,16 @@ export default function Partners() {
           {PARTNERS.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.07} className="bg-paper">
               <div className="flex h-full flex-col px-7 py-9">
-                <p className="text-2xl font-bold tracking-tight text-ink/85">
-                  {p.mark}
-                </p>
-                <p className="mt-4 text-sm font-medium text-ink">{p.name}</p>
+                <div className="flex h-14 items-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.logo}
+                    alt={`${p.name} logo`}
+                    className="max-h-12 w-auto max-w-[180px] object-contain opacity-75 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="mt-5 text-sm font-medium text-ink">{p.name}</p>
                 <p className="mt-1 text-[13px] leading-relaxed text-muted">
                   {p.line}
                 </p>
