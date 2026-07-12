@@ -1,45 +1,29 @@
-import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
 const KPIS = [
-  { k: "Energy intensity", v: "0.42", u: "kWh/kg", d: "−8% vs target", spark: "M0,18 L8,14 L16,16 L24,10 L32,12 L40,7 L48,9 L56,4" },
-  { k: "Water intensity", v: "62", u: "L/kg", d: "−12% YoY", spark: "M0,16 L8,17 L16,12 L24,13 L32,9 L40,10 L48,6 L56,5" },
-  { k: "CO₂e per batch", v: "1.9", u: "kg/kg", d: "scope 1+2 basis", spark: "M0,14 L8,15 L16,11 L24,12 L32,10 L40,8 L48,8 L56,6" },
-  { k: "Fabric waste", v: "1.8", u: "%", d: "−0.6 pt since pilot", spark: "M0,12 L8,14 L16,10 L24,11 L32,8 L40,9 L48,5 L56,6" },
-  { k: "First quality", v: "98.5", u: "%", d: "graded per meter", spark: "M0,16 L8,12 L16,13 L24,9 L32,10 L40,6 L48,7 L56,3" },
-  { k: "Rework", v: "0.9", u: "%", d: "root-caused", spark: "M0,10 L8,12 L16,9 L24,10 L32,7 L40,8 L48,5 L56,5" },
-  { k: "Machine efficiency", v: "84", u: "%", d: "event-based OEE", spark: "M0,17 L8,13 L16,14 L24,11 L32,11 L40,8 L48,9 L56,5" },
-  { k: "ΔE color stability", v: "0.4", u: "avg", d: "per-batch drift", spark: "M0,9 L8,11 L16,8 L24,10 L32,7 L40,9 L48,6 L56,7" },
+  { k: "Energy", v: "0.42", u: "kWh/kg", d: "−8% vs target", spark: "M0,18 L10,14 L20,16 L30,10 L40,12 L50,7 L60,9 L70,4" },
+  { k: "Water", v: "62", u: "L/kg", d: "−12% YoY", spark: "M0,16 L10,17 L20,12 L30,13 L40,9 L50,10 L60,6 L70,5" },
+  { k: "CO₂e", v: "1.9", u: "kg/kg", d: "scope 1+2", spark: "M0,14 L10,15 L20,11 L30,12 L40,10 L50,8 L60,8 L70,6" },
+  { k: "Waste", v: "1.8", u: "%", d: "−0.6 pt since pilot", spark: "M0,12 L10,14 L20,10 L30,11 L40,8 L50,9 L60,5 L70,6" },
+  { k: "Quality", v: "98.5", u: "%", d: "first quality", spark: "M0,16 L10,12 L20,13 L30,9 L40,10 L50,6 L60,7 L70,3" },
 ] as const;
 
-const SCOPES = ["Machine-level", "Batch-level", "Factory", "Multi-factory", "ESG / Executive"] as const;
+const DETAIL_KPIS = [
+  ["Machine efficiency", "84%", "event-based OEE"],
+  ["Rework", "0.9%", "root-caused"],
+  ["ΔE color stability", "0.4 avg", "per-batch drift"],
+] as const;
 
 const FRAMEWORKS = [
-  {
-    t: "CSRD-oriented reporting",
-    b: "KPIs structured along CSRD reporting logic, generated from machine events rather than estimates.",
-  },
-  {
-    t: "Digital Product Passport readiness",
-    b: "Batch-level material, process and impact data organized so DPP requirements can be met as they land.",
-  },
-  {
-    t: "EU Green Deal metrics",
-    b: "Energy, water, chemical and waste intensity tracked continuously against reduction targets.",
-  },
-  {
-    t: "TÜV-oriented documentation",
-    b: "Traceable measurement chains and methodology notes prepared for third-party review.",
-  },
-  {
-    t: "Audit-ready evidence",
-    b: "Every KPI traces to the machine events behind it — drill down from report line to timestamp.",
-  },
-  {
-    t: "Exportable report packs",
-    b: "Management, operations, quality and sustainability reports exported as structured PDF packs.",
-  },
+  "CSRD-oriented reporting",
+  "Digital Product Passport readiness",
+  "EU Green Deal metrics",
+  "TÜV-oriented documentation",
+  "ESG dashboards",
+  "Exportable PDF report packs",
 ] as const;
+
+const REPORT_BARS = [34, 40, 37, 44, 41, 48, 46, 52, 50, 57, 55, 61] as const;
 
 export default function Sustainability() {
   return (
@@ -53,110 +37,114 @@ export default function Sustainability() {
             From machine data to audit-ready sustainability intelligence.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
-            Reporting is not a dashboard bolted on at the end — it is the
-            product of every sensed event. Numbers below are illustrative pilot
-            telemetry; in production, each figure drills down to the machine
-            events that produced it.
+            Five numbers tell the story. Everything beneath them stays
+            traceable to machine events. Figures shown are illustrative pilot
+            telemetry.
           </p>
         </Reveal>
 
-        {/* Live KPI fabric — native UI, every value traceable */}
-        <Reveal delay={0.08}>
-          <div className="mt-14 border border-line">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-line bg-paper-2 px-5 py-3">
-              {SCOPES.map((s, i) => (
-                <span
-                  key={s}
-                  className={`font-mono text-[10px] uppercase tracking-[0.18em] ${
-                    i === 0 ? "text-ink" : "text-muted"
-                  }`}
-                >
-                  {s}
-                </span>
-              ))}
-              <span className="ml-auto flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-                <span aria-hidden className="size-1.5 rounded-full bg-acid" />
-                Live · Factory 1
-              </span>
-            </div>
-            <dl className="grid grid-cols-2 gap-px bg-line md:grid-cols-4">
-              {KPIS.map((kpi) => (
-                <div key={kpi.k} className="bg-paper px-5 py-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
-                    {kpi.k}
-                  </dt>
-                  <dd className="mt-2 flex items-baseline gap-1.5">
-                    <span className="text-2xl font-semibold tracking-tight">{kpi.v}</span>
-                    <span className="text-xs text-muted">{kpi.u}</span>
-                  </dd>
-                  <svg
-                    aria-hidden
-                    viewBox="0 0 56 20"
-                    className="mt-2 h-5 w-14 overflow-visible"
-                  >
-                    <path
-                      d={kpi.spark}
-                      fill="none"
-                      stroke="var(--acid-dim)"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                  <p className="mt-1.5 text-[11px] text-muted">{kpi.d}</p>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </Reveal>
-
-        {/* Frameworks */}
-        <div className="mt-14 grid gap-px border border-line bg-line md:grid-cols-3">
-          {FRAMEWORKS.map((f, i) => (
-            <Reveal key={f.t} delay={i * 0.05} className="bg-paper">
-              <div className="h-full px-6 py-7">
-                <h3 className="text-base font-semibold tracking-tight">{f.t}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-muted">{f.b}</p>
+        {/* Headline KPIs — big number, short label, one sparkline */}
+        <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5 lg:gap-8">
+          {KPIS.map((kpi, i) => (
+            <Reveal key={kpi.k} delay={i * 0.05}>
+              <div className="border border-line bg-paper px-6 py-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                  {kpi.k}
+                </p>
+                <p className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+                  {kpi.v}
+                </p>
+                <p className="mt-1 text-sm text-muted">{kpi.u}</p>
+                <svg aria-hidden viewBox="0 0 70 20" className="mt-6 h-5 w-full overflow-visible">
+                  <path d={kpi.spark} fill="none" stroke="var(--acid-dim)" strokeWidth="1.5" />
+                </svg>
+                <p className="mt-3 text-[11px] text-muted">{kpi.d}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
-        {/* Generated report artifacts */}
-        <div className="mt-14 grid gap-8 md:grid-cols-5">
-          <Reveal className="md:col-span-3">
-            <figure>
-              <div className="relative aspect-[16/9] overflow-hidden border border-line">
-                <Image
-                  src="/img/report_audit.jpg"
-                  alt="Audit-ready CSRD-oriented sustainability report pages generated for NexTex AI"
-                  fill
-                  sizes="(min-width: 768px) 60vw, 100vw"
-                  className="object-cover"
-                />
+        {/* Secondary metrics live behind a disclosure, not on the page */}
+        <Reveal delay={0.1}>
+          <details className="group mt-6">
+            <summary className="inline-flex cursor-pointer list-none items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-muted transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
+              <span aria-hidden className="text-acid-dim transition-transform group-open:rotate-45">+</span>
+              View detailed KPIs
+            </summary>
+            <div className="mt-6 grid gap-6 border-t border-line pt-6 md:grid-cols-3">
+              {DETAIL_KPIS.map(([k, v, d]) => (
+                <div key={k}>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">{k}</p>
+                  <p className="mt-2 text-2xl font-semibold tracking-tight">{v}</p>
+                  <p className="mt-1 text-[11px] text-muted">{d}</p>
+                </div>
+              ))}
+            </div>
+          </details>
+        </Reveal>
+
+        {/* One minimal report page */}
+        <div className="mt-20 grid items-center gap-12 md:grid-cols-2">
+          <Reveal>
+            <div className="border border-line bg-white px-8 py-10 shadow-[0_1px_2px_rgba(12,13,11,0.06)] md:px-10 md:py-12">
+              <div className="flex items-baseline justify-between gap-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                  Sustainability report
+                </p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                  Q2 · Factory 1
+                </p>
               </div>
-              <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-                Audit pack · exportable PDF
-              </figcaption>
-            </figure>
+              <h3 className="mt-6 text-xl font-semibold tracking-tight">
+                Machine-verified performance
+              </h3>
+              <dl className="mt-8 grid grid-cols-3 gap-6">
+                {[
+                  ["Energy", "−8%"],
+                  ["Water", "−12%"],
+                  ["CO₂e", "−9%"],
+                ].map(([k, v]) => (
+                  <div key={k}>
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{k}</dt>
+                    <dd className="mt-1.5 text-2xl font-semibold tracking-tight">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <svg aria-hidden viewBox="0 0 288 72" className="mt-10 h-20 w-full">
+                {REPORT_BARS.map((h, i) => (
+                  <rect
+                    key={i}
+                    x={i * 24 + 4}
+                    y={72 - h}
+                    width={12}
+                    height={h}
+                    fill={i === REPORT_BARS.length - 1 ? "var(--acid)" : "var(--line)"}
+                  />
+                ))}
+              </svg>
+              <p className="mt-8 border-t border-line pt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+                Every figure traces to machine events · Export PDF
+              </p>
+            </div>
           </Reveal>
-          <Reveal delay={0.08} className="md:col-span-2">
-            <figure>
-              <div className="relative aspect-[16/9] overflow-hidden border border-line">
-                <Image
-                  src="/img/dashboard_sustainability.jpg"
-                  alt="Sustainability intelligence dashboard with energy, water, CO2 and waste KPIs"
-                  fill
-                  sizes="(min-width: 768px) 40vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-                Executive dashboard · multi-factory
-              </figcaption>
-            </figure>
-            <p className="mt-6 text-lg font-medium leading-snug tracking-tight text-ink">
-              Every KPI traces to a machine event. Every report can be defended
-              in an audit.
+
+          <Reveal delay={0.08}>
+            <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
+              Reports your auditor can interrogate.
+            </h3>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
+              One page, five numbers, a trend — and behind every line, the
+              machine events that produced it. Drill from report figure to
+              timestamp when the question comes.
             </p>
+            <ul className="mt-8 space-y-3">
+              {FRAMEWORKS.map((f) => (
+                <li key={f} className="flex items-baseline gap-3 text-sm text-ink/85">
+                  <span aria-hidden className="size-1.5 shrink-0 translate-y-[-1px] bg-acid" />
+                  {f}
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </div>
