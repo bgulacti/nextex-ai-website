@@ -16,7 +16,7 @@ const PARTNERS = [
   {
     logo: "/partners/ribana.svg",
     name: "Ribana Tekstil",
-    line: "60+ circular knitting machines — Çorlu, Türkiye · est. 1990",
+    line: "60+ circular knitting machines — Çorlu, Türkiye",
   },
 ] as const;
 
