@@ -6,17 +6,17 @@ const PARTNERS = [
   {
     logo: "/partners/terrot.png",
     name: "Terrot GmbH",
-    line: "Circular knitting machine manufacturer — Germany",
+    line: "Circular knitting machine manufacturer — Chemnitz, Germany",
   },
   {
     logo: "/partners/nuryildiz.png",
     name: "Nuryıldız Tekstil",
-    line: "80+ machines, circular knitting & finishing — Çorlu / İstanbul",
+    line: "80+ machines, circular knitting & finishing — Çorlu",
   },
   {
     logo: "/partners/ribana.svg",
     name: "Ribana Tekstil",
-    line: "150+ circular knitting machines — İstanbul, est. 1990",
+    line: "150+ circular knitting machines — Çorlu, est. 1990",
   },
 ] as const;
 
