@@ -11,12 +11,12 @@ const PARTNERS = [
   {
     logo: "/partners/nuryildiz.png",
     name: "Nuryıldız Tekstil",
-    line: "80+ machines, circular knitting & finishing — Çorlu",
+    line: "60+ machines, circular knitting & finishing — Çorlu, Türkiye",
   },
   {
     logo: "/partners/ribana.svg",
     name: "Ribana Tekstil",
-    line: "150+ circular knitting machines — Çorlu, est. 1990",
+    line: "60+ circular knitting machines — Çorlu, Türkiye · est. 1990",
   },
 ] as const;
 
