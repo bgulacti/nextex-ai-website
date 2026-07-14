@@ -104,28 +104,43 @@ export default function Flow() {
   }, []);
 
   const active = Math.round(pos);
-  // Local progress within the active stage's window: 0 → 1
-  const t = Math.min(1, Math.max(0, pos - active + 0.5));
+  // Local progress within the active stage's window: 0 → 1.
+  // Edge stages own half-width windows ([0, 0.5] and [N-1.5+1, N-1]), so map
+  // against the clipped window or their t would never leave [0.5, 1] / [0, 0.5].
+  const winStart = Math.max(0, active - 0.5);
+  const winEnd = Math.min(STAGES.length - 1, active + 0.5);
+  const t = Math.min(1, Math.max(0, (pos - winStart) / (winEnd - winStart)));
   // Knitting story beat: 0 = machine start, 1 = the unnoticed needle break
   const knitBeat = active === 0 && t >= 0.45 ? 1 : 0;
   // Meters counter for the needle-break story (0 → 3.2 m as the defect runs)
   const meters = Math.min(1, Math.max(0, (t - 0.5) / 0.32)) * 3.2;
 
   // Play only the active stage's active beat; pause everything else.
-  useEffect(() => {
+  // Sync runs on every scroll step AND on a slow heartbeat, so a play/pause
+  // race during fast scrolling self-heals even if the user stops right on a
+  // beat boundary (an interrupted play() would otherwise stay paused).
+  const syncRef = useRef<() => void>(() => {});
+  syncRef.current = () => {
     videoRefs.current.forEach((stageVids, i) => {
       stageVids.forEach((vid, b) => {
         if (!vid) return;
         const shouldPlay =
           motionOK && i === active && (i === 0 ? b === knitBeat : b === 0);
         if (shouldPlay) {
-          vid.play().catch(() => {});
+          if (vid.paused) vid.play().catch(() => {});
         } else if (!vid.paused) {
           vid.pause();
         }
       });
     });
-  }, [active, knitBeat, motionOK]);
+  };
+  useEffect(() => {
+    syncRef.current();
+  }, [pos, active, knitBeat, motionOK]);
+  useEffect(() => {
+    const id = setInterval(() => syncRef.current(), 700);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <section
