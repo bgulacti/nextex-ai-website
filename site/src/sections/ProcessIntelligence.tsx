@@ -65,7 +65,6 @@ export default function ProcessIntelligence() {
               alt="Macro view of knitted fabric with a single toxic green thread — generated for NexTex AI"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              quality={90}
               className="object-cover"
             />
           </div>
