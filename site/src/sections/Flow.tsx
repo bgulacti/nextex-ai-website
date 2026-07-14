@@ -93,6 +93,7 @@ export default function Flow() {
                   alt={`${s.name} — generated scene of the ${s.name.toLowerCase()} stage with machine-intelligence overlay`}
                   fill
                   sizes="100vw"
+                  quality={90}
                   priority={i === 0}
                   className="object-cover"
                 />
