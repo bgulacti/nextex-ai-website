@@ -1,20 +1,35 @@
 import Reveal from "@/components/Reveal";
 import PilotForm from "@/components/PilotForm";
 
-const FOUNDERS = [
+const FOUNDERS: {
+  initials: string;
+  name: string;
+  role: string;
+  email?: string;
+}[] = [
   {
     initials: "BG",
     name: "Berk Gülaçtı",
-    role: "Founder & CEO",
+    role: "Founder & CEO — Finance, Business Development & Sales",
     email: "berk@nextex-ai.com",
   },
   {
     initials: "BÜ",
     name: "Burak Ünal",
-    role: "Co-Founder & AI Vision Engineer",
+    role: "Co-Founder — AI & Computer Vision",
     email: "burak@nextex-ai.com",
   },
-] as const;
+  {
+    initials: "ÖE",
+    name: "Zeynep Öykü Erdem",
+    role: "Co-Founder — Backend Infrastructure & Full-Stack Engineering",
+  },
+  {
+    initials: "PB",
+    name: "Phil Borkenhagen",
+    role: "Co-Founder — System, Edge & Data Architecture",
+  },
+];
 
 const CONTACTS = [
   {
@@ -65,12 +80,14 @@ export default function TeamContact() {
                   <div>
                     <h3 className="text-xl font-semibold tracking-tight">{f.name}</h3>
                     <p className="mt-1 text-sm text-muted">{f.role}</p>
-                    <a
-                      href={`mailto:${f.email}`}
-                      className="mt-2 inline-block text-sm text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-acid"
-                    >
-                      {f.email}
-                    </a>
+                    {f.email && (
+                      <a
+                        href={`mailto:${f.email}`}
+                        className="mt-2 inline-block text-sm text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-acid"
+                      >
+                        {f.email}
+                      </a>
+                    )}
                   </div>
                 </div>
               </Reveal>

@@ -18,6 +18,11 @@ const PARTNERS = [
     name: "Ribana Tekstil",
     line: "60+ circular knitting machines — Çorlu, Türkiye",
   },
+  {
+    logo: "/partners/oneware.svg",
+    name: "ONE WARE GmbH",
+    line: "Hardware-optimized AI deployment & FPGA edge inference — technology partner, Germany",
+  },
 ] as const;
 
 export default function Partners() {
@@ -36,7 +41,7 @@ export default function Partners() {
             Letters of Intent signed for pilot collaboration.
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-px border border-line bg-line md:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-line bg-line md:grid-cols-2 lg:grid-cols-4">
           {PARTNERS.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.07} className="bg-paper">
               <div className="flex h-full flex-col px-7 py-9">
