@@ -2,28 +2,29 @@ const COLS: [string, [string, string][]][] = [
   [
     "Platform",
     [
-      ["How it works", "#platform"],
-      ["Defect intelligence", "#defects"],
-      ["Process intelligence", "#process"],
-      ["Data intelligence", "#data"],
-      ["Sustainability & reporting", "#sustainability"],
+      ["How it works", "/#platform"],
+      ["Defect intelligence", "/#defects"],
+      ["Process intelligence", "/#process"],
+      ["Data intelligence", "/#data"],
+      ["Sustainability & reporting", "/#sustainability"],
     ],
   ],
   [
     "Products",
     [
-      ["Fabric", "#fabric"],
-      ["Fabric Pro", "#fabric-pro"],
-      ["Architecture", "#architecture"],
-      ["Roadmap", "#roadmap"],
+      ["Fabric", "/#fabric"],
+      ["Fabric Pro", "/#fabric-pro"],
+      ["Architecture", "/#architecture"],
+      ["Roadmap", "/#roadmap"],
     ],
   ],
   [
     "Company",
     [
-      ["Team", "#team"],
-      ["Pilot environments", "#pilots"],
-      ["Contact", "#contact"],
+      ["Team", "/#team"],
+      ["Pilot environments", "/#pilots"],
+      ["Blog", "/blog"],
+      ["Contact", "/#contact"],
     ],
   ],
 ];

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 
@@ -60,6 +61,14 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col">
         <LenisProvider>{children}</LenisProvider>
+        {/* Vercel Web Analytics: cookieless page views, including client-side
+            navigation. Loaded as Vercel's own script rather than the
+            @vercel/analytics package, whose optional SvelteKit peer
+            dependency conflicts with Vitest under npm 11. The script only
+            exists on Vercel deployments, so skip it in dev. */}
+        {process.env.NODE_ENV === "production" && (
+          <Script src="/_vercel/insights/script.js" strategy="afterInteractive" />
+        )}
       </body>
     </html>
   );

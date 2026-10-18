@@ -79,10 +79,12 @@ export default function DefectIntelligence() {
             </h2>
           </div>
 
-          {/* Honesty tag for the staged scene */}
+          {/* Honesty tag for the staged scene. On phones the text doesn't fit
+              on one line and would run into the heading, so it sits at the
+              bottom (below the operator alert) and wraps within the screen. */}
           <div
             aria-hidden
-            className="absolute right-5 top-[4.5rem]"
+            className="absolute bottom-4 left-5 right-5 text-right md:bottom-auto md:left-auto md:top-[4.5rem]"
             style={{ opacity: fade(p, 0.15, 1.01) * 0.9 }}
           >
             <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-paper/60">

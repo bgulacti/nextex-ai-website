@@ -12,6 +12,7 @@ import Sustainability from "@/sections/Sustainability";
 import Products from "@/sections/Products";
 import Architecture from "@/sections/Architecture";
 import Operations from "@/sections/Operations";
+import Tools from "@/sections/Tools";
 import TeamContact from "@/sections/TeamContact";
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
       <Products />
       <Architecture />
       <Operations />
+      <Tools />
       <TeamContact />
       <Footer />
     </main>

@@ -1,35 +1,6 @@
 import Reveal from "@/components/Reveal";
 import PilotForm from "@/components/PilotForm";
-
-const FOUNDERS: {
-  initials: string;
-  name: string;
-  role: string;
-  email?: string;
-}[] = [
-  {
-    initials: "BG",
-    name: "Berk Gülaçtı",
-    role: "Founder & CEO — Finance, Business Development & Sales",
-    email: "berk@nextex-ai.com",
-  },
-  {
-    initials: "BÜ",
-    name: "Burak Ünal",
-    role: "Co-Founder — AI & Computer Vision",
-    email: "burak@nextex-ai.com",
-  },
-  {
-    initials: "ÖE",
-    name: "Zeynep Öykü Erdem",
-    role: "Co-Founder — Backend Infrastructure & Full-Stack Engineering",
-  },
-  {
-    initials: "PB",
-    name: "Phil Borkenhagen",
-    role: "Co-Founder — System, Edge & Data Architecture",
-  },
-];
+import { FOUNDERS } from "@/content/team";
 
 const CONTACTS = [
   {
@@ -67,10 +38,10 @@ export default function TeamContact() {
               every report the platform produces.
             </p>
           </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {FOUNDERS.map((f, i) => (
-              <Reveal key={f.name} delay={i * 0.08}>
-                <div className="flex items-center gap-6 border border-line bg-paper px-7 py-8">
+              <Reveal key={f.name} delay={i * 0.08} className="h-full">
+                <div className="flex h-full items-center gap-6 border border-line bg-paper px-7 py-8">
                   <span
                     aria-hidden
                     className="flex size-16 shrink-0 items-center justify-center border border-line bg-paper-2 text-lg font-bold tracking-tight text-ink"

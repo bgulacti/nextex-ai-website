@@ -33,8 +33,9 @@ export default function PilotForm() {
     )}&body=${encodeURIComponent(body)}`;
   };
 
+  // 16 px on phones: iOS Safari zooms the page when focusing a field under 16 px.
   const field =
-    "w-full border border-line bg-paper px-4 py-3 text-sm text-ink placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-acid";
+    "w-full border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-acid md:text-sm";
   const label = "font-mono text-[10px] uppercase tracking-[0.2em] text-muted";
 
   return (
